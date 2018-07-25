@@ -29,7 +29,6 @@ export class CropperToolComponent implements OnInit {
     const image = <HTMLCanvasElement> document.getElementById('image');
     let self = this;
     const cropper = new Cropper(image, {
-      aspectRatio: 16 / 9,
       crop(event) {
 
         self.params.x = event.detail.x;
