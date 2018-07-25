@@ -7,11 +7,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { EditImageComponent } from './edit-image/edit-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CropperToolComponent,
+    HomeComponent,
+    EditImageComponent,
 
   ],
   imports: [
@@ -24,7 +29,8 @@ import { MatToolbarModule, MatButtonModule, MatCardModule, MatSidenavModule, Mat
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    AppRoutingModule
   ],
   providers: [MatButtonModule],
   bootstrap: [AppComponent]
