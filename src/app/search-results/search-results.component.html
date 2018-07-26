@@ -1,0 +1,9 @@
+<mat-list>
+    <mat-card *ngFor="let result of results">
+      <h4>{{result.title}}</h4>
+      <div>
+        <small>{{result.url}}</small>
+        <p><span>{{result.date}}</span> {{result.description}}</p>
+      </div>
+    </mat-card>
+</mat-list>

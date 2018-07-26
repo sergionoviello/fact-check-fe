@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { EditImageComponent } from './edit-image/edit-image.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     CropperToolComponent,
     HomeComponent,
     EditImageComponent,
+    SearchResultsComponent,
 
   ],
   imports: [
