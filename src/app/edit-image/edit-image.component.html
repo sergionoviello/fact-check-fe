@@ -1,10 +1,19 @@
-<mat-card>
-  <button mat-flat-button routerLink="/home">back</button>
+<mat-toolbar color="primary">
+  <i class="material-icons back-button" routerLink="/home">
+    arrow_back
+  </i>&nbsp; Refine Your Image
+</mat-toolbar>
 
+<div class="image-area">
   <div class="image-wrapper">
-    <img id="image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
+    <img id="image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)"/>
   </div>
-  <app-cropper-tool></app-cropper-tool>
-
-  <button mat-raised-button (click)="processImage()">process</button>
-</mat-card>
+  <mat-card class="cropper-container">
+    <mat-card-content>
+    <app-cropper-tool></app-cropper-tool>
+    </mat-card-content>
+    <mat-card-content class="action-container">
+      <button mat-raised-button color="primary" (click)="processImage()">VIEW RESULTS</button>
+    </mat-card-content>
+  </mat-card>
+</div>
