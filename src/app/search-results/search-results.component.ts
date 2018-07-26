@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageSearchService } from '../image-search.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-results',
@@ -8,10 +9,16 @@ import { ImageSearchService } from '../image-search.service';
 })
 export class SearchResultsComponent implements OnInit {
   results;
-  constructor(private imageSearchService: ImageSearchService) { }
+  imgData;
+  constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
     this.results = this.imageSearchService.getResults();
+
+    this.imgData = this.imageSearchService.data.imageData;
+    if (!this.imgData) {
+      this.imgData = this.imageSearchService.data.imageData = localStorage.getItem('fc-image');
+    }
   }
 
 }

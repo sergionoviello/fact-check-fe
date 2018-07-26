@@ -6,7 +6,7 @@ import { CropperToolComponent } from './cropper-tool/cropper-tool.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatSidenavModule, MatMenuModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './/app-routing.module';
@@ -38,7 +38,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     MatButtonModule,
     MatExpansionModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [MatButtonModule],
   bootstrap: [AppComponent]
