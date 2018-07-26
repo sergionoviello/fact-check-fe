@@ -45,6 +45,21 @@ export class ImageSearchService {
   }
 
   getResults() {
+    let res = {
+      "full_matches": [
+        {
+            "country": "United States",
+            "unix_time": 1532573962,
+            "image_url": "https://us-east-1.tchyn.io/snopes-production/uploads/2018/02/cadburyhiv.jpg"
+        }
+      ],
+      "best_guess": [
+          "cadbury hiv"
+      ],
+
+      stories: []
+    }
+
     let dummyResult = {
       title: 'Where is Mohammad bin Salman? Not dead according to Saudi Arabia',
       url: 'https://www.newsweek.com/wheres-mohammed-bin-salman-not-dead-according-saudi-arabia-950996',
@@ -52,11 +67,21 @@ export class ImageSearchService {
       description: 'audi authorities have released new video footage of Mohammed bin Salman amid conspiracy theories alleging the crown prince has been dead for more than a month.'
     };
 
-    let results = [];
+
     for (let i = 0; i < 10; i++) {
-      results.push(dummyResult);
+      res.stories.push(dummyResult);
     }
 
-    return { relatedText: 'Mohammad bin Salman dad', stories: results };
+    return res;
+  }
+
+  searchResults() {
+    let res = this.getResults();
+    let formattedResult = {
+      imageData: res.full_matches[0].image_url,
+      relatedText: res.best_guess[0],
+      stories: res.stories
+    }
+    return formattedResult;
   }
 }

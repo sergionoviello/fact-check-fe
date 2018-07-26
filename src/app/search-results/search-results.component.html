@@ -4,7 +4,7 @@
   </i>&nbsp; Results
 </mat-toolbar>
 <div class="search-results--header">
-  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
+  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(results.imageData)" />
 
   <div class="search-results--info">
     <div class="search-results--related" *ngIf="results.relatedText">

@@ -9,16 +9,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SearchResultsComponent implements OnInit {
   results;
-  imgData;
   constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
-    this.results = this.imageSearchService.getResults();
+    this.results = this.imageSearchService.searchResults();
 
-    this.imgData = this.imageSearchService.data.imageData;
-    if (!this.imgData) {
-      this.imgData = this.imageSearchService.data.imageData = localStorage.getItem('fc-image');
-    }
+    console.log(this.results);
   }
 
 }
