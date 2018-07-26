@@ -15,7 +15,7 @@ export class EditImageComponent implements OnInit {
   loadingMessage: boolean;
   processButtonLabel: string;
   errorMessage: string;
-  constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer, private router: Router) { }
+  constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
     this.imgData = this.imageSearchService.data.imageData;

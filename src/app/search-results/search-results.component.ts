@@ -14,7 +14,7 @@ export class SearchResultsComponent implements OnInit {
   orderBy: string;
   filterField: string;
   range: string;
-  constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer) { }
+  constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
     this.results = this.imageSearchService.searchResults();
