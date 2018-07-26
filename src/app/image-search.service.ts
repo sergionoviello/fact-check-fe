@@ -15,6 +15,8 @@ const httpOptions = {
 })
 export class ImageSearchService {
   apiUrl;
+  imageData;
+  data;
 
   constructor(private http: HttpClient) {
     this.apiUrl = 'http://google.com';
@@ -31,5 +33,9 @@ export class ImageSearchService {
 
   handleError(err: Response) {
     return Observable.throw('err')
+  }
+
+  setImageData(data) {
+    this.imageData = data;
   }
 }

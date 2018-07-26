@@ -45,6 +45,8 @@ export class CropperToolComponent implements OnInit {
         self.params.rotate = event.detail.rotate;
         self.params.scaleX = event.detail.scaleX;
         self.params.scaleY = event.detail.scaleY;
+
+        self.imageSearchService.data = self.params;
       }
     });
   }
@@ -52,15 +54,12 @@ export class CropperToolComponent implements OnInit {
   flipX(ev) {
     let data = this.cropper.getData();
     this.cropper.scale(data.scaleX * -1, 1);
+    this.imageSearchService.data.scaleX = data.scaleX * -1;
   }
 
   flipY(ev) {
     let data = this.cropper.getData();
     this.cropper.scale(1, data.scaleY * -1);
-  }
-
-  processImage() {
-    let data = this.params;
-    this.imageSearchService.searchImage(data).subscribe(res => console.log('res', res));
+    this.imageSearchService.data.scaleY = data.scaleY * -1;
   }
 }

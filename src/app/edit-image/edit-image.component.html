@@ -2,7 +2,9 @@
   <button mat-flat-button routerLink="/home">back</button>
 
   <div class="image-wrapper">
-    <img id="image" src="assets/images.jpeg" />
+    <img id="image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
   </div>
   <app-cropper-tool></app-cropper-tool>
+
+  <button mat-raised-button (click)="processImage()">process</button>
 </mat-card>

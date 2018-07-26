@@ -13,6 +13,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { EditImageComponent } from './edit-image/edit-image.component';
 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import { EditImageComponent } from './edit-image/edit-image.component';
     MatCardModule,
     MatButtonModule,
     MatExpansionModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [MatButtonModule],
   bootstrap: [AppComponent]

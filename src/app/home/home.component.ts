@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import { ImageSearchService } from '../image-search.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('fileBrowser') fileInput;
 
-  constructor() { }
+  constructor(private imageSearchService: ImageSearchService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -20,11 +22,14 @@ export class HomeComponent implements OnInit {
 
   onSelectImage(ev) {
     let file = ev.target.files[0];
+    let self = this;
     const reader = new FileReader();
     reader.onloadend = function() {
-
-      console.log('RESULT', reader.result)
+      self.imageSearchService.setImageData(reader.result);
+      self.router.navigate(['/edit'])
     }
+
+    reader.readAsDataURL(file);
   }
 
 }
