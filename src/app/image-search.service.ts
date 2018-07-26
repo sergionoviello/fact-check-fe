@@ -48,7 +48,7 @@ export class ImageSearchService {
     let dummyResult = {
       title: 'Where is Mohammad bin Salman? Not dead according to Saudi Arabia',
       url: 'https://www.newsweek.com/wheres-mohammed-bin-salman-not-dead-according-saudi-arabia-950996',
-      data: 'May 31, 2018',
+      date: 'May 31, 2018',
       description: 'audi authorities have released new video footage of Mohammed bin Salman amid conspiracy theories alleging the crown prince has been dead for more than a month.'
     };
 
