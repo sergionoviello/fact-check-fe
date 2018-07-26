@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-image.component.css']
 })
 export class EditImageComponent implements OnInit {
-
+  file: HTMLInputElement
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeImage(ev) {
+    this.file = <HTMLInputElement> ev.target.files[0];
+    console.log(this.file)
   }
 
 }

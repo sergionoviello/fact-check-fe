@@ -2,15 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 import Cropper from 'cropperjs';
 
+import { ImageSearchService } from '../image-search.service';
+
 @Component({
   selector: 'app-cropper-tool',
   templateUrl: './cropper-tool.component.html',
   styleUrls: ['./cropper-tool.component.css']
 })
 export class CropperToolComponent implements OnInit {
-  params
+  params;
+  cropper;
+  image;
 
-  constructor() {
+  constructor(private imageSearchService: ImageSearchService) {
     this.params = {
       x: 0,
       y: 0,
@@ -26,9 +30,12 @@ export class CropperToolComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    const image = <HTMLCanvasElement> document.getElementById('image');
+    this.image = <HTMLCanvasElement> document.getElementById('image');
     let self = this;
-    const cropper = new Cropper(image, {
+    this.cropper = new Cropper(this.image, {
+      viewMode: 1,
+      aspectRatio: 1,
+      responsive: false,
       crop(event) {
 
         self.params.x = event.detail.x;
@@ -40,5 +47,20 @@ export class CropperToolComponent implements OnInit {
         self.params.scaleY = event.detail.scaleY;
       }
     });
+  }
+
+  flipX(ev) {
+    let data = this.cropper.getData();
+    this.cropper.scale(data.scaleX * -1, 1);
+  }
+
+  flipY(ev) {
+    let data = this.cropper.getData();
+    this.cropper.scale(1, data.scaleY * -1);
+  }
+
+  processImage() {
+    let data = this.params;
+    this.imageSearchService.searchImage(data).subscribe(res => console.log('res', res));
   }
 }
