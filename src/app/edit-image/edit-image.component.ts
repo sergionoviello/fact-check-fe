@@ -12,12 +12,11 @@ export class EditImageComponent implements OnInit {
   constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer) { }
 
   ngOnInit() {
-    this.imgData =this.imageSearchService.imageData;
+    this.imgData = this.imageSearchService.data.imageData;
   }
 
   processImage() {
-    let data = this.imageSearchService.data;
-    console.log(this.imageSearchService.imageData, data);
+    console.log(this.imageSearchService.data);
     //this.imageSearchService.searchImage(data).subscribe(res => console.log('res', res));
   }
 

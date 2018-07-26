@@ -15,11 +15,11 @@ const httpOptions = {
 })
 export class ImageSearchService {
   apiUrl;
-  imageData;
   data;
 
   constructor(private http: HttpClient) {
     this.apiUrl = 'http://google.com';
+    this.data = {};
    }
 
   searchImage(data): Observable<any> {
@@ -36,6 +36,6 @@ export class ImageSearchService {
   }
 
   setImageData(data) {
-    this.imageData = data;
+    this.data.imageData = data;
   }
 }
