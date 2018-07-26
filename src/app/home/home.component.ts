@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
     const reader = new FileReader();
     reader.onloadend = function() {
       self.imageSearchService.setImageData(reader.result);
+      localStorage.setItem('fc-image', reader.result);
       self.router.navigate(['/edit'])
     }
 

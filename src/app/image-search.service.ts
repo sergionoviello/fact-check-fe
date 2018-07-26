@@ -18,7 +18,7 @@ export class ImageSearchService {
   data;
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'http://google.com';
+    this.apiUrl = 'http://example.com';
     this.data = {};
    }
 

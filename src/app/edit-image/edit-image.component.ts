@@ -13,11 +13,14 @@ export class EditImageComponent implements OnInit {
 
   ngOnInit() {
     this.imgData = this.imageSearchService.data.imageData;
+    if (!this.imgData) {
+      this.imgData = this.imageSearchService.data.imageData = localStorage.getItem('fc-image');
+
+    }
   }
 
   processImage() {
-    console.log(this.imageSearchService.data);
-    //this.imageSearchService.searchImage(data).subscribe(res => console.log('res', res));
+    this.imageSearchService.searchImage(this.imageSearchService.data).subscribe(res => console.log('res', res));
   }
 
 }

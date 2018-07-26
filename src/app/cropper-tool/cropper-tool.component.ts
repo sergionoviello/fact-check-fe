@@ -34,7 +34,6 @@ export class CropperToolComponent implements OnInit {
     let self = this;
     this.cropper = new Cropper(this.image, {
       viewMode: 1,
-      aspectRatio: 1,
       responsive: false,
       crop(event) {
 
@@ -59,5 +58,9 @@ export class CropperToolComponent implements OnInit {
     let data = this.cropper.getData();
     this.cropper.scale(1, data.scaleY * -1);
     //this.imageSearchService.data.scaleY = data.scaleY * -1;
+  }
+
+  rotate() {
+    this.cropper.rotate(90)
   }
 }
