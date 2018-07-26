@@ -1,4 +1,4 @@
-<mat-card class="search-results--header">
+<div class="search-results--header">
   <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
 
   <div>
@@ -17,7 +17,17 @@
       <button mat-menu-item>Newest Results</button>
     </mat-menu>
   </div>
-</mat-card>
+</div>
+
+<mat-expansion-panel class="search-results--translate">
+    <mat-expansion-panel-header>
+      Translate text on the image
+    </mat-expansion-panel-header>
+
+    <p>This is the primary content of the panel.</p>
+
+  </mat-expansion-panel>
+
 <mat-list>
     <mat-card *ngFor="let result of results.stories">
       <h4>{{result.title}}</h4>

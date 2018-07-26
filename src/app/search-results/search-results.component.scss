@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import '../../themes/trupic-theme.scss';
+
+mat-list {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.search-results--header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 10px 10px 8px #888888;
+}
+.search-results--image {
+  height: 40%;
+  width: 40%;
+}
+
+.mat-expansion-panel, mat-expansion-panel-header {
+  background: mat-color($trupicPalette, 50);
+}

@@ -44,7 +44,7 @@ $trupicPalette: (
 // hue. Available color palettes: https://material.io/design/color/
 $trupic-app-primary: mat-palette($trupicPalette);
 $trupic-app-accent: mat-palette($mat-amber, A200, A100, A400);
-
+$trupic-app-expans-panel:  mat-palette($trupicPalette, 400);
 // The warn palette is optional (defaults to red).
 $trupic-app-warn: mat-palette($mat-red);
 
