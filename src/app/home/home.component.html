@@ -4,7 +4,7 @@
       <div class="home-upload-container" (click)="onUpload()">
 
         <div style="height:0px;overflow:hidden">
-          <input #fileBrowser type="file" id="fileBrowser" name="fileBrowser" accept="image/*" />
+          <input #fileBrowser type="file" id="fileBrowser" name="fileBrowser" accept="image/*" (change)="onSelectImage($event)" />
         </div>
 
         <i class="material-icons home-upload">cloud_upload</i>

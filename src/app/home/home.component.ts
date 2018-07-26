@@ -18,4 +18,13 @@ export class HomeComponent implements OnInit {
     this.fileInput.nativeElement.click();
   }
 
+  onSelectImage(ev) {
+    let file = ev.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = function() {
+
+      console.log('RESULT', reader.result)
+    }
+  }
+
 }
