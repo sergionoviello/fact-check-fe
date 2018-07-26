@@ -1,16 +1,12 @@
-<mat-card>
-  <mat-card-content>
-    <div>
-      <div class="home-upload-container" (click)="onUpload()">
-
-        <div style="height:0px;overflow:hidden">
-          <input #fileBrowser type="file" id="fileBrowser" name="fileBrowser" accept="image/*" (change)="onSelectImage($event)" />
-        </div>
-
-        <i class="material-icons home-upload">cloud_upload</i>
-
-      </div>
-    </div>
-  </mat-card-content>
-</mat-card>
-
+<div class="home-upload">
+  <div style="height:0px;overflow:hidden">
+    <input #fileBrowser type="file" id="fileBrowser" name="fileBrowser" accept="image/*"
+           (change)="onSelectImage($event)"/>
+  </div>
+  <div>
+    <i class="material-icons icon-upload">
+      cloud_upload
+    </i>
+  </div>
+  <button mat-raised-button color="primary" (click)="onUpload()">UPLOAD IMAGE</button>
+</div>
