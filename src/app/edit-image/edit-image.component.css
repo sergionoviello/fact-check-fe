@@ -1,5 +1,18 @@
+.back-button {
+  cursor: pointer;
+}
+
+.cropper-container, .action-container {
+  text-align: center;
+}
+
+.image-area {
+  background-color: #e0e0e0;
+}
 .image-wrapper {
-  height: 350px;
+  max-height: 200px;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 #image {
   max-width: 100%;
