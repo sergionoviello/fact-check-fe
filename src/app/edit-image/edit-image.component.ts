@@ -12,6 +12,9 @@ export class EditImageComponent implements OnInit {
   file: HTMLInputElement;
   imgData: any;
   wrapperSize: string;
+  loadingMessage: boolean;
+  processButtonLabel: string;
+  errorMessage: string;
   constructor(private imageSearchService: ImageSearchService, private _DomSanitizationService: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
@@ -22,12 +25,25 @@ export class EditImageComponent implements OnInit {
       this.imageSearchService.data.origHeight = localStorage.getItem('fc-height');
     }
     this.wrapperSize = this.imageSearchService.data.origWidth + 'px';
+    this.loadingMessage = false;
+    this.processButtonLabel = 'view results';
+    this.errorMessage = '';
   }
 
   processImage() {
-    // this.imageSearchService.searchImage(this.imageSearchService.data).subscribe(res => console.log('res', res));
-    this.router.navigate(['/results'])
-
+    this.errorMessage = '';
+    this.loadingMessage = true;
+    this.processButtonLabel = 'processing...';
+    this.imageSearchService.searchImage(this.imageSearchService.data).subscribe(res => {
+      this.loadingMessage = false;
+      this.processButtonLabel = 'view results';
+      this.imageSearchService.response = res;
+      this.router.navigate(['/results'])
+    }, error => {
+      this.loadingMessage = false;
+      this.processButtonLabel = 'view results';
+      this.errorMessage = 'An error occurred. Try again';
+    } );
   }
 
 }

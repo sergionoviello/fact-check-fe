@@ -17,3 +17,19 @@
 #image {
   max-width: 100%;
 }
+
+.progress {
+  width: 50%;
+  margin: auto;
+  font-size: 12px;
+  color: #666;
+}
+
+.btn-process {
+  text-transform: uppercase;
+}
+
+.error-message {
+  font-size: 13px;
+  color: red;
+}
