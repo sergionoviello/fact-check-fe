@@ -1,0 +1,18 @@
+.mat-card {
+  margin: 15px;
+}
+
+.mat-card-actions {
+
+}
+
+.home-upload-container {
+  text-align: center;
+  cursor: pointer;
+}
+
+.home-upload {
+  padding: 48px 0;
+  font-size: 10em;
+}
+
