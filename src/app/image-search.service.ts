@@ -342,7 +342,13 @@ export class ImageSearchService {
   searchResults() {
     //for debugging only
     //this.response = this.getDummyResults();
-    //console.log('RESPONSE', this.response);
+
+
+    if (Object.keys(this.response).length === 0) {
+      this.response = JSON.parse(localStorage.getItem('fc-results'));
+    }
+    console.log('RESPONSE', this.response);
+
     let formattedResult = {
       imageData: 'http://via.placeholder.com/80x80',
       relatedText: '',

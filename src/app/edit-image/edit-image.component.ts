@@ -15,6 +15,7 @@ export class EditImageComponent implements OnInit {
   loadingMessage: boolean;
   processButtonLabel: string;
   errorMessage: string;
+  wrapperSizeH: string;
   constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer, private router: Router) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class EditImageComponent implements OnInit {
       this.imageSearchService.data.origHeight = localStorage.getItem('fc-height');
     }
     this.wrapperSize = this.imageSearchService.data.origWidth + 'px';
+    this.wrapperSizeH = this.imageSearchService.data.origHeight + 'px';
     this.loadingMessage = false;
     this.processButtonLabel = 'view results';
     this.errorMessage = '';
@@ -38,6 +40,7 @@ export class EditImageComponent implements OnInit {
       this.loadingMessage = false;
       this.processButtonLabel = 'view results';
       this.imageSearchService.response = res;
+      localStorage.setItem('fc-results', JSON.stringify(res));
       this.router.navigate(['/results'])
     }, error => {
       this.loadingMessage = false;

@@ -33,7 +33,7 @@ export class CropperToolComponent implements OnInit {
     this.image = <HTMLCanvasElement> document.getElementById('image');
     let self = this;
     this.cropper = new Cropper(this.image, {
-      viewMode: 2,
+      viewMode: 1,
       responsive: true,
       crop(event) {
 

@@ -4,3 +4,7 @@
 .icon-rotate {
   transform: rotate(90deg);
 }
+
+#image {
+  max-width: 100%;
+}
