@@ -33,8 +33,8 @@ export class CropperToolComponent implements OnInit {
     this.image = <HTMLCanvasElement> document.getElementById('image');
     let self = this;
     this.cropper = new Cropper(this.image, {
-      viewMode: 1,
-      responsive: false,
+      viewMode: 2,
+      responsive: true,
       crop(event) {
 
         self.imageSearchService.data.x = event.detail.x;

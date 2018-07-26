@@ -1,0 +1,29 @@
+<mat-card class="search-results--header">
+  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
+
+  <div>
+    <div class="search-results--related" *ngIf="results.relatedText">
+      <small>Related Text</small>
+      <h4>{{ results.relatedText }}</h4>
+    </div>
+
+
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      Any Time
+    </button>
+
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item>Oldest Results</button>
+      <button mat-menu-item>Newest Results</button>
+    </mat-menu>
+  </div>
+</mat-card>
+<mat-list>
+    <mat-card *ngFor="let result of results.stories">
+      <h4>{{result.title}}</h4>
+      <div>
+        <small>{{result.url}}</small>
+        <p><span>{{result.date}}</span> {{result.description}}</p>
+      </div>
+    </mat-card>
+</mat-list>
