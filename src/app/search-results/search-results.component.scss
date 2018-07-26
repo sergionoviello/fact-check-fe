@@ -1,0 +1,83 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import '../../themes/trupic-theme.scss';
+
+mat-list {
+  flex-grow: 1;
+  overflow: auto;
+  padding-top: 0;
+}
+
+.search-results--header {
+  display: flex;
+  padding: 10px;
+  box-shadow: 0 2px 8px 0px #ccc;
+  margin-bottom: 6px;
+
+  small {
+    font-size: 12px;
+    color: #666;
+  }
+  h4 {
+    font-size: normal;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 0;
+    margin: 0;
+    line-height: 22px;
+  }
+}
+
+.search-results--dropdowns {
+  display: flex;
+  justify-content: space-between;
+  button {
+    color: #666;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+.search-results--image {
+  height: 30%;
+  width: 30%;
+}
+
+.search-results--info {
+  flex: 2;
+  padding: 10px;
+}
+
+mat-expansion-panel {
+  box-shadow: none;
+}
+.mat-expansion-panel, mat-expansion-panel-header {
+  background: mat-color($trupicPalette, 50);
+}
+
+.search-results--translate {
+  mat-expansion-panel-header {
+    color: mat-color($trupicPalette, 900);
+  }
+}
+
+.search-results--list {
+  font-size: 15px;
+
+  h4 {
+    color: mat-color($trupicPalette, 900);
+  }
+
+  small {
+    color: #666;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+}

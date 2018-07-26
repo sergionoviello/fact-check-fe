@@ -1,29 +1,62 @@
-<mat-card class="search-results--header">
-  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
+<mat-toolbar color="primary">
+  <i class="material-icons back-button" routerLink="/edit">
+    arrow_back
+  </i>&nbsp; Results
+</mat-toolbar>
+<div class="search-results--header">
+  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(results.imageData)" />
 
-  <div>
+  <div class="search-results--info">
     <div class="search-results--related" *ngIf="results.relatedText">
       <small>Related Text</small>
       <h4>{{ results.relatedText }}</h4>
     </div>
 
+    <div class="search-results--dropdowns">
+      <button  mat-icon-button [matMenuTriggerFor]="appTime">
+        Any Time
+        <i class="material-icons">
+          arrow_drop_down
+        </i>
 
-    <button mat-icon-button [matMenuTriggerFor]="appMenu">
-      Any Time
-    </button>
+      </button>
 
-    <mat-menu #appMenu="matMenu">
-      <button mat-menu-item>Oldest Results</button>
-      <button mat-menu-item>Newest Results</button>
-    </mat-menu>
+      <button  mat-icon-button [matMenuTriggerFor]="appSort">
+          Oldest Results
+          <i class="material-icons">
+            arrow_drop_down
+          </i>
+
+        </button>
+
+      <mat-menu #appSort="matMenu">
+        <button mat-menu-item>Oldest Results</button>
+        <button mat-menu-item>Newest Results</button>
+      </mat-menu>
+
+      <mat-menu #appTime="matMenu">
+          <button mat-menu-item>Any Time</button>
+          <button mat-menu-item>Last 24 hours</button>
+        </mat-menu>
+    </div>
   </div>
-</mat-card>
-<mat-list>
+</div>
+
+<mat-expansion-panel class="search-results--translate mat-elevation-z">
+    <mat-expansion-panel-header>
+      Translate text on the image
+    </mat-expansion-panel-header>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita quidem voluptates, neque iure similique porro quibusdam labore ratione nobis consectetur beatae nihil ducimus, odit autem. Numquam ducimus fugiat esse porro?.</p>
+
+  </mat-expansion-panel>
+
+<mat-list class="search-results--list">
     <mat-card *ngFor="let result of results.stories">
       <h4>{{result.title}}</h4>
       <div>
         <small>{{result.url}}</small>
-        <p><span>{{result.date}}</span> {{result.description}}</p>
+        <p><span class="bold">{{result.date}}</span> - {{result.description}}</p>
       </div>
     </mat-card>
 </mat-list>
