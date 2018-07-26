@@ -38,4 +38,8 @@ export class SearchResultsComponent implements OnInit {
   changeFilter(ev) {
     this.range = ev.target.innerText;
   }
+
+  changeLanguage(ev) {
+
+  }
 }

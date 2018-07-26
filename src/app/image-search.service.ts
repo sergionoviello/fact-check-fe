@@ -341,7 +341,7 @@ export class ImageSearchService {
 
   searchResults() {
 
-    //this.response = this.getDummyResults();
+    this.response = this.getDummyResults();
     console.log('RESPONSE', this.response);
     let formattedResult = {
       imageData: 'http://via.placeholder.com/80x80',

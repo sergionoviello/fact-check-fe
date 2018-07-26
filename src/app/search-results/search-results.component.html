@@ -51,7 +51,19 @@
       Translate text on the image
     </mat-expansion-panel-header>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita quidem voluptates, neque iure similique porro quibusdam labore ratione nobis consectetur beatae nihil ducimus, odit autem. Numquam ducimus fugiat esse porro?.</p>
+    <button class="btn-sortby" mat-icon-button [matMenuTriggerFor]="appLanguage">
+      Language on image
+      <i class="material-icons">
+        arrow_drop_down
+      </i>
+    </button>
+
+    <mat-menu class="menu-languages" #appLanguage="matMenu" yPosition="below">
+      <button mat-menu-item (click)="changeLanguage($event)">english</button>
+      <button mat-menu-item (click)="changeLanguage($event)">arabic</button>
+      <button mat-menu-item (click)="changeLanguage($event)">chinese</button>
+
+    </mat-menu>
 
   </mat-expansion-panel>
 
