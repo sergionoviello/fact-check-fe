@@ -13,6 +13,5 @@ export class AppComponent {
   constructor(private imageSearchService: ImageSearchService, private router: Router) {}
 
   ngOnInit() {
-    console.log('test', this.router.routerState);
   }
 }

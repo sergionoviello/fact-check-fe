@@ -73,4 +73,8 @@ export class SearchResultsComponent implements OnInit {
       this.translatedText = 'error';
     } );
   }
+
+  openPage(url) {
+    window.open(url, '_blank');
+  }
 }
