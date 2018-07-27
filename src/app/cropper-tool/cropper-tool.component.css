@@ -1,6 +1,9 @@
 .mat-action-icon {
   color: #e0e0e0;
 }
+.buttonToggle {
+  color: black;
+}
 .icon-rotate {
   transform: rotate(90deg);
 }

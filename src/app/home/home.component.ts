@@ -46,4 +46,8 @@ export class HomeComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
+  downloadApp() {
+    window.open('/assets/trupic-v1.apk', '_self');
+  }
+
 }
