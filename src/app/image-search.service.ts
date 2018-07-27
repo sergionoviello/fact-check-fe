@@ -380,4 +380,11 @@ export class ImageSearchService {
 
     return formattedResult;
   }
+
+  ocr(img, from) {
+    return Observable.create(observer => {
+      observer.next('HELLO');
+      observer.complete();
+    });
+  }
 }
