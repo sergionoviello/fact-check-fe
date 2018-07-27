@@ -352,7 +352,8 @@ export class ImageSearchService {
     let formattedResult = {
       imageData: 'http://via.placeholder.com/80x80',
       relatedText: '',
-      similar_images: []
+      similar_images: [],
+      image_text: ''
     }
 
     if (this.response.full_matches && this.response.full_matches.length > 0) {
@@ -365,6 +366,10 @@ export class ImageSearchService {
 
     if (this.response.similar_images && this.response.similar_images.length > 0) {
       formattedResult.similar_images = this.response.similar_images;
+    }
+
+    if (this.response.image_text && this.response.image_text.length > 0) {
+      formattedResult.image_text = this.response.image_text[0];
     }
 
     return formattedResult;

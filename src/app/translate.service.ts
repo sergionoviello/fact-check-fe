@@ -17,7 +17,48 @@ export class TranslateService {
   }
 
   getLanguageList() {
-    return this.http.get(this.apiUrl)
+    return Observable.create(observer => {
+      let results = [{
+        label: 'arabic',
+        code: 'ar'
+      },{
+        label: 'english',
+        code: 'en'
+      }, {
+        label: 'french',
+        code: 'fr'
+      }, {
+        label: 'hindi',
+        code: 'hi'
+      }, {
+        label: 'indonesian',
+        code: 'id'
+      }];
+
+      observer.next(results);
+      observer.complete();
+    });
+
+    // return this.http.get(this.apiUrl)
+
+    // .pipe(
+    //   catchError(this.handleError)
+    // );
+  }
+
+  translate(text, from, to) {
+    let hdrs = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    let url = 'http://35.240.238.172/api/translate';
+    let data = {
+      text: text,
+      from: from,
+      to: to
+    };
+
+    return this.http.post(url, data, { headers: hdrs, responseType: 'text' })
 
     .pipe(
       catchError(this.handleError)
