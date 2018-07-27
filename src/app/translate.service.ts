@@ -19,17 +19,20 @@ export class TranslateService {
   getLanguageList() {
     return Observable.create(observer => {
       let results = [{
+        label: 'arabic',
+        code: 'ar'
+      },{
         label: 'english',
         code: 'en'
       }, {
         label: 'french',
         code: 'fr'
       }, {
-        label: 'indonesian',
-        code: 'id'
-      }, {
         label: 'hindi',
         code: 'hi'
+      }, {
+        label: 'indonesian',
+        code: 'id'
       }];
 
       observer.next(results);
