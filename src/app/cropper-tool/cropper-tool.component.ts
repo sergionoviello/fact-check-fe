@@ -36,6 +36,7 @@ export class CropperToolComponent implements OnInit {
     let self = this;
     this.cropper = new Cropper(this.image, {
       viewMode: 1,
+      autoCropArea: 1,
       responsive: true,
       crop(event) {
 
@@ -48,6 +49,12 @@ export class CropperToolComponent implements OnInit {
         self.imageSearchService.data.scaleY = event.detail.scaleY;
       }
     });
+
+    this.cropper.setData({
+      x: 0,
+      y: 0,
+      width: 200
+    })
   }
 
   flipX(ev) {
