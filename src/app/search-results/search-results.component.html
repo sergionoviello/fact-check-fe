@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<mat-expansion-panel class="search-results--translate mat-elevation-z" *ngIf="results.image_text.length > 0">
+<mat-expansion-panel class="search-results--translate mat-elevation-z">
     <mat-expansion-panel-header>
       <i class="material-icons">translate</i>
       Translate text on the image
@@ -65,9 +65,9 @@
       <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{lang.label}}</button>
     </mat-menu>
 
-    <p *ngIf="selectedLanguage !== 'No language selected'">{{results.image_text}}</p>
+    <p *ngIf="textInImage.length > 0">{{textInImage}}</p>
 
-    <div *ngIf="selectedLanguage !== 'No language selected'">
+    <div *ngIf="textInImage.length > 0">
     <label class="languages-label">Translate to</label>
     <mat-menu #appToLanguage="matMenu" class="menu-languages">
       <button mat-menu-item *ngFor="let lang of languages" (click)="translateTo(lang)">{{lang.label}}</button>

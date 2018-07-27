@@ -22,11 +22,14 @@ export class SearchResultsComponent implements OnInit {
   toLanguage: string;
   translatedText: string;
   imgData: string;
+  textInImage: string;
   constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer, private translateService: TranslateService) { }
 
   ngOnInit() {
     this.imgData = localStorage.getItem('fc-image');
     this.results = this.imageSearchService.searchResults();
+
+    console.log('RES', this.results);
 
     this.translatedText = '';
     this.orderBy = 'Oldest';
@@ -39,6 +42,7 @@ export class SearchResultsComponent implements OnInit {
     this.languages = [];
     this.fromLanguage = '';
     this.toLanguage = '';
+    this.textInImage = '';
     this.translateService.getLanguageList().subscribe(res => {
       this.translateService.languages = res;
       this.languages = res;
@@ -64,13 +68,19 @@ export class SearchResultsComponent implements OnInit {
   changeLanguage(lang) {
     this.selectedLanguage = lang.label;
     this.fromLanguage = lang.code;
+
+    this.imageSearchService.ocr(this.imgData, this.fromLanguage).subscribe(res => {
+      this.textInImage = res['text'].replace('INTERP\nINTERPO\n', '');
+    }, error => {
+      this.textInImage = '';
+    } );
   }
 
   translateTo(lang) {
     this.selectedToLanguage = lang.label;
     this.toLanguage = lang.code;
 
-    this.translateService.translate(this.results.image_text, this.fromLanguage, this.toLanguage).subscribe(res => {
+    this.translateService.translate(this.textInImage, this.fromLanguage, this.toLanguage).subscribe(res => {
       this.translatedText = res;
     }, error => {
       this.translatedText = 'error';
