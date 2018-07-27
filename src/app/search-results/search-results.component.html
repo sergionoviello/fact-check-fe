@@ -48,22 +48,25 @@
 
 <mat-expansion-panel class="search-results--translate mat-elevation-z">
     <mat-expansion-panel-header>
+      <i class="material-icons">translate</i>
       Translate text on the image
     </mat-expansion-panel-header>
 
-    <button class="btn-sortby" mat-icon-button [matMenuTriggerFor]="appLanguage">
-      Language on image
+    <label class="languages-label">Language on image</label>
+    <button mat-icon-button [matMenuTriggerFor]="appLanguage" class="btn-languages">
+      {{selectedLanguage}}
       <i class="material-icons">
         arrow_drop_down
       </i>
     </button>
 
-    <mat-menu class="menu-languages" #appLanguage="matMenu" yPosition="below">
+    <mat-menu #appLanguage="matMenu" class="menu-languages">
       <button mat-menu-item (click)="changeLanguage($event)">english</button>
       <button mat-menu-item (click)="changeLanguage($event)">arabic</button>
       <button mat-menu-item (click)="changeLanguage($event)">chinese</button>
 
     </mat-menu>
+
 
   </mat-expansion-panel>
 

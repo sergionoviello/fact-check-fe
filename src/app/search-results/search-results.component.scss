@@ -59,7 +59,18 @@ mat-expansion-panel {
 .search-results--translate {
   mat-expansion-panel-header {
     color: mat-color($trupicPalette, 900);
+
+    ::ng-deep .mat-expansion-indicator {
+      margin-right: 90px;
+      margin-bottom: 4px;
+    }
   }
+  .material-icons {
+    font-size: 17px;
+    margin-right: 10px;
+  }
+
+
 }
 
 .search-results--list {
@@ -91,4 +102,26 @@ mat-expansion-panel {
 
 .spacer {
   padding-bottom: 40px;
+}
+
+.languages-label {
+  display: block;
+}
+
+.btn-languages {
+  color: #999;
+  border-radius: 0;
+  text-align: left;
+  width: 157px;
+  border-bottom: 1px solid #999;
+}
+
+::ng-deep .menu-languages.mat-menu-panel {
+  margin-top: 35px;
+  width: 200px;
+}
+::ng-deep .menu-languages .mat-menu-item {
+  font-size: 12px;
+  height: 27px;
+  line-height: 27px;
 }

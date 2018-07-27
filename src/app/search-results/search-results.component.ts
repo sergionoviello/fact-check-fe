@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageSearchService } from '../image-search.service';
+import { TranslateService } from '../translate.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -14,7 +15,8 @@ export class SearchResultsComponent implements OnInit {
   orderBy: string;
   filterField: string;
   range: string;
-  constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer) { }
+  selectedLanguage: string;
+  constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer, private translateService: TranslateService) { }
 
   ngOnInit() {
     this.results = this.imageSearchService.searchResults();
@@ -23,6 +25,14 @@ export class SearchResultsComponent implements OnInit {
     this.ascending = true;
     this.filterField = 'unix_time';
     this.range = 'Any time';
+    this.selectedLanguage = 'No language selected';
+
+    this.translateService.getLanguageList().subscribe(res => {
+      console.log('languages', res);
+      this.translateService.languages = res;
+    }, error => {
+
+    });
   }
 
   changeOrder(order) {
@@ -40,6 +50,6 @@ export class SearchResultsComponent implements OnInit {
   }
 
   changeLanguage(ev) {
-
+    this.selectedLanguage = ev.target.innerText;
   }
 }
