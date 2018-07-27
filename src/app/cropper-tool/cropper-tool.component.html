@@ -1,7 +1,7 @@
-<button mat-button (click)="flipX($event)" class="mat-action-icon"><i class="material-icons">
+<button mat-button (click)="flipX($event)"><i [ngClass]="{'material-icons  mat-action-icon': true, 'buttonToggle': flipXstate }">
   flip
 </i></button>
-<button mat-button (click)="flipY($event)"><i class="material-icons mat-action-icon icon-rotate">
+<button mat-button (click)="flipY($event)"><i [ngClass]="{'material-icons  mat-action-icon icon-rotate': true, 'buttonToggle': flipYstate }">
   flip
 </i></button>
 <button mat-button (click)="rotate($event)"><i class="material-icons mat-action-icon">

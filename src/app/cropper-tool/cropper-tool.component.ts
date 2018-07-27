@@ -13,6 +13,8 @@ export class CropperToolComponent implements OnInit {
   //params;
   cropper;
   image;
+  flipXstate = false;
+  flipYstate = false;
 
   constructor(private imageSearchService: ImageSearchService) {
     // this.params = {
@@ -52,12 +54,14 @@ export class CropperToolComponent implements OnInit {
     let data = this.cropper.getData();
     this.cropper.scale(data.scaleX * -1, 1);
     //this.imageSearchService.data.scaleX = data.scaleX * -1;
+    this.flipXstate = !this.flipXstate;
   }
 
   flipY(ev) {
     let data = this.cropper.getData();
     this.cropper.scale(1, data.scaleY * -1);
     //this.imageSearchService.data.scaleY = data.scaleY * -1;
+    this.flipYstate = !this.flipYstate;
   }
 
   rotate() {
