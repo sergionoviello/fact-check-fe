@@ -61,12 +61,26 @@
     </button>
 
     <mat-menu #appLanguage="matMenu" class="menu-languages">
-      <button mat-menu-item (click)="changeLanguage($event)">english</button>
-      <button mat-menu-item (click)="changeLanguage($event)">arabic</button>
-      <button mat-menu-item (click)="changeLanguage($event)">chinese</button>
-
+      <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">{{lang.label}}</button>
     </mat-menu>
 
+    <p *ngIf="selectedLanguage !== 'No language selected'">{{results.image_text}}</p>
+
+    <div *ngIf="selectedLanguage !== 'No language selected'">
+    <label class="languages-label">Translate to</label>
+    <mat-menu #appToLanguage="matMenu" class="menu-languages">
+      <button mat-menu-item *ngFor="let lang of languages" (click)="translateTo(lang)">{{lang.label}}</button>
+    </mat-menu>
+
+    <button mat-icon-button [matMenuTriggerFor]="appToLanguage" class="btn-languages">
+        {{selectedToLanguage}}
+        <i class="material-icons">
+          arrow_drop_down
+        </i>
+      </button>
+
+      <p>{{translatedText}}</p>
+    </div>
 
   </mat-expansion-panel>
 
