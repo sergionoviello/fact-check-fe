@@ -4,7 +4,8 @@
   </i>&nbsp; Results
 </mat-toolbar>
 <div class="search-results--header">
-  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(results.imageData)" />
+
+  <img class="search-results--image" [src]="_DomSanitizationService.bypassSecurityTrustUrl(imgData)" />
 
   <div class="search-results--info">
     <div class="search-results--related" *ngIf="results.relatedText">
@@ -79,7 +80,7 @@
         </i>
       </button>
 
-      <p>{{translatedText}}</p>
+      <p [innerHTML]="translatedText"></p>
     </div>
 
   </mat-expansion-panel>
@@ -89,7 +90,10 @@
       <h4>{{result.page_title}}</h4>
       <div>
         <small>{{result.page_url}}</small>
-        <p><span class="bold">{{result.unix_time | dateShortFormat}}</span> - {{result.page_summary}}</p>
+        <div class="story-card">
+          <img class="search-results-thumb" [src]="_DomSanitizationService.bypassSecurityTrustUrl(result.image_url)" />
+          <p><span class="bold">{{result.unix_time | dateShortFormat}}</span> - {{result.page_summary}}</p>
+        </div>
       </div>
     </mat-card>
 </mat-list>

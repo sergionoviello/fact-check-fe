@@ -357,20 +357,26 @@ export class ImageSearchService {
     }
 
     if (this.response.full_matches && this.response.full_matches.length > 0) {
-      formattedResult.imageData = this.response.full_matches[0].image_url;
+      formattedResult.similar_images.push(this.response.full_matches);
+    }
+
+    if (this.response.partial_matches && this.response.partial_matches.length > 0) {
+      formattedResult.similar_images.push(this.response.partial_matches);
+    }
+
+    if (this.response.similar_images && this.response.similar_images.length > 0) {
+      formattedResult.similar_images.push(this.response.similar_images);
     }
 
     if (this.response.best_guess && this.response.best_guess.length > 0) {
       formattedResult.relatedText = this.response.best_guess[0]
     }
 
-    if (this.response.similar_images && this.response.similar_images.length > 0) {
-      formattedResult.similar_images = this.response.similar_images;
-    }
-
     if (this.response.image_text && this.response.image_text.length > 0) {
       formattedResult.image_text = this.response.image_text[0];
     }
+
+    formattedResult.similar_images = [].concat.apply([], formattedResult.similar_images);
 
     return formattedResult;
   }

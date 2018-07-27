@@ -21,10 +21,13 @@ export class SearchResultsComponent implements OnInit {
   fromLanguage: string;
   toLanguage: string;
   translatedText: string;
+  imgData: string;
   constructor(private imageSearchService: ImageSearchService, public _DomSanitizationService: DomSanitizer, private translateService: TranslateService) { }
 
   ngOnInit() {
+    this.imgData = localStorage.getItem('fc-image');
     this.results = this.imageSearchService.searchResults();
+
     this.translatedText = '';
     this.orderBy = 'Oldest';
     this.order = 'unix_time';

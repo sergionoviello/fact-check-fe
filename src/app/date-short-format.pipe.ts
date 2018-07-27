@@ -6,10 +6,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DateShortFormatPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return new Date(value * 1000).toLocaleString('en-us', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric'
-    });
+
+    try {
+      return new Date(value * 1000).toLocaleString('en-us', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    } catch (e) {
+      return '';
+    }
   }
 }
