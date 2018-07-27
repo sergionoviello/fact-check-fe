@@ -46,7 +46,7 @@
   </div>
 </div>
 
-<mat-expansion-panel class="search-results--translate mat-elevation-z">
+<mat-expansion-panel class="search-results--translate mat-elevation-z" *ngIf="results.image_text.length > 0">
     <mat-expansion-panel-header>
       <i class="material-icons">translate</i>
       Translate text on the image
