@@ -70,7 +70,7 @@ export class SearchResultsComponent implements OnInit {
     this.fromLanguage = lang.code;
 
     this.imageSearchService.ocr(this.imgData, this.fromLanguage).subscribe(res => {
-      this.textInImage = res;
+      this.textInImage = res['text'].replace('INTERP\nINTERPO\n', '');
     }, error => {
       this.textInImage = '';
     } );
