@@ -86,7 +86,7 @@
   </mat-expansion-panel>
 
 <mat-list class="search-results--list">
-    <mat-card *ngFor="let result of results.similar_images | filterByDate:filterField:range | orderBy:order:ascending">
+    <mat-card class="mat-card-result" *ngFor="let result of results.similar_images | filterByDate:filterField:range | orderBy:order:ascending" (click)="openPage(result.page_url)">
       <h4>{{result.page_title}}</h4>
       <div>
         <small>{{result.page_url}}</small>
