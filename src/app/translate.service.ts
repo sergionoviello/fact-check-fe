@@ -33,6 +33,9 @@ export class TranslateService {
       }, {
         label: 'indonesian',
         code: 'id'
+      }, {
+        label: 'malayalam',
+        code: 'ml'
       }];
 
       observer.next(results);

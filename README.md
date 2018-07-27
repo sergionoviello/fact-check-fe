@@ -33,5 +33,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 2. Run `gcloud auth login`
 3. Run `gcloud config set project trustedmedia2018`
 4. Run `ng build` from the root directory to build the project.
-5. Run `gloud app deploy` from the `deploy` directory
+5. Run `gcloud app deploy` from the `deploy` directory
 6. Go to https://trustedmedia2018.appspot.com/
