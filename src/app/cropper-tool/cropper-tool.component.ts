@@ -37,6 +37,8 @@ export class CropperToolComponent implements OnInit {
     this.cropper = new Cropper(this.image, {
       viewMode: 1,
       responsive: true,
+      background: false,
+      autoCropArea: 1,
       crop(event) {
 
         self.imageSearchService.data.x = event.detail.x;

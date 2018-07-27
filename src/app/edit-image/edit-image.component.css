@@ -10,10 +10,8 @@
   background-color: #e0e0e0;
 }
 .image-wrapper {
-  max-height: 497px;
-  min-height: 210px;
-  padding-top: 20px;
-  margin-bottom: 40px;
+  height: 500px;
+  min-height: 200px;
 }
 #image, .image-wrapper img {
   max-width: 100%;
