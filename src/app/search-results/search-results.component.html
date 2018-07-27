@@ -13,16 +13,16 @@
     </div>
 
     <div class="search-results--dropdowns">
-      <button  mat-icon-button [matMenuTriggerFor]="appTime">
-        Any Time
+      <button class="btn-filter-date"  mat-icon-button [matMenuTriggerFor]="appTime">
+       {{range}}
         <i class="material-icons">
           arrow_drop_down
         </i>
 
       </button>
 
-      <button  mat-icon-button [matMenuTriggerFor]="appSort">
-          Oldest Results
+      <button class="btn-sortby" mat-icon-button [matMenuTriggerFor]="appSort">
+          {{orderBy}} Results
           <i class="material-icons">
             arrow_drop_down
           </i>
@@ -30,13 +30,17 @@
         </button>
 
       <mat-menu #appSort="matMenu">
-        <button mat-menu-item>Oldest Results</button>
-        <button mat-menu-item>Newest Results</button>
+        <button mat-menu-item (click)="changeOrder('Oldest')">Oldest Results</button>
+        <button mat-menu-item (click)="changeOrder('Newest')">Newest Results</button>
       </mat-menu>
 
       <mat-menu #appTime="matMenu">
-          <button mat-menu-item>Any Time</button>
-          <button mat-menu-item>Last 24 hours</button>
+          <button mat-menu-item (click)="changeFilter($event)">Any time</button>
+          <button mat-menu-item (click)="changeFilter($event)">Past hour</button>
+          <button mat-menu-item (click)="changeFilter($event)">Past 24 hours</button>
+          <button mat-menu-item (click)="changeFilter($event)">Past week</button>
+          <button mat-menu-item (click)="changeFilter($event)">Past month</button>
+          <button mat-menu-item (click)="changeFilter($event)">Past year</button>
         </mat-menu>
     </div>
   </div>
@@ -44,19 +48,36 @@
 
 <mat-expansion-panel class="search-results--translate mat-elevation-z">
     <mat-expansion-panel-header>
+      <i class="material-icons">translate</i>
       Translate text on the image
     </mat-expansion-panel-header>
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita quidem voluptates, neque iure similique porro quibusdam labore ratione nobis consectetur beatae nihil ducimus, odit autem. Numquam ducimus fugiat esse porro?.</p>
+    <label class="languages-label">Language on image</label>
+    <button mat-icon-button [matMenuTriggerFor]="appLanguage" class="btn-languages">
+      {{selectedLanguage}}
+      <i class="material-icons">
+        arrow_drop_down
+      </i>
+    </button>
+
+    <mat-menu #appLanguage="matMenu" class="menu-languages">
+      <button mat-menu-item (click)="changeLanguage($event)">english</button>
+      <button mat-menu-item (click)="changeLanguage($event)">arabic</button>
+      <button mat-menu-item (click)="changeLanguage($event)">chinese</button>
+
+    </mat-menu>
+
 
   </mat-expansion-panel>
 
 <mat-list class="search-results--list">
-    <mat-card *ngFor="let result of results.stories">
-      <h4>{{result.title}}</h4>
+    <mat-card *ngFor="let result of results.similar_images | filterByDate:filterField:range | orderBy:order:ascending">
+      <h4>{{result.page_title}}</h4>
       <div>
-        <small>{{result.url}}</small>
-        <p><span class="bold">{{result.date}}</span> - {{result.description}}</p>
+        <small>{{result.page_url}}</small>
+        <p><span class="bold">{{result.unix_time | dateShortFormat}}</span> - {{result.page_summary}}</p>
       </div>
     </mat-card>
 </mat-list>
+
+<div class="spacer"></div>

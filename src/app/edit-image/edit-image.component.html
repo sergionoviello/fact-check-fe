@@ -13,7 +13,13 @@
     <app-cropper-tool></app-cropper-tool>
     </mat-card-content>
     <mat-card-content class="action-container">
-      <button mat-raised-button color="primary" (click)="processImage()">VIEW RESULTS</button>
+      <button class="btn-process" mat-raised-button color="primary" (click)="processImage()" [disabled]="loadingMessage">
+        {{processButtonLabel}}
+      </button>
     </mat-card-content>
+
+    <p class="error-message" *ngIf="errorMessage.length > 0">{{errorMessage}}</p>
   </mat-card>
+
+
 </div>
